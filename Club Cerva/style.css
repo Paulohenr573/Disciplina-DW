@@ -1,0 +1,276 @@
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-size: 17px;
+    position: relative;
+}
+h1{
+    text-align: center;
+    color: goldenrod;
+    font-size: 70px;
+    font-style:oblique;
+}
+
+.pagina-index {
+    background-image: url('fotos/fundo.jpeg'), url('mais/proibido.jpg'); 
+    background-size:cover, 100px 100px; 
+    background-position: left, right top; 
+    background-repeat: no-repeat, no-repeat; 
+    height: 100vh; 
+}
+
+.pagina-acessar-conta {
+    background-image: url('fotos/fundo.jpeg');
+    background-size: cover, 100px 100px; 
+    background-position: center, right top; 
+    background-repeat: no-repeat, no-repeat; 
+    height: 100vh; 
+}
+
+
+
+.club-cerva {
+    font-size: 1.2em;
+    width: 40%; 
+    text-align: right;
+    margin-right: 20px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 5px;
+}
+
+.alinhado-direita {
+    position: absolute;
+    right: 10px;
+    top: 10px; 
+    margin: 0;
+    width: 500px; 
+    text-align: right; 
+}
+
+
+.texto-direita, .link-direita {
+    position: absolute;
+    right: 10px;
+    margin: 0;
+}
+.texto-esquerda {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    margin: 0;
+}
+
+.link-esquerda {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    margin: 0;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background: rgba(128, 128, 128, 0.4); 
+}
+
+
+nav ul {
+    display: flex;
+    flex-direction: row; 
+    justify-content:left; 
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    position: relative; 
+}
+
+nav li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+}
+
+nav li a:hover {
+    background-color: gold;
+    color: black;
+    transform: scale(1.25);
+}
+
+.clubvantagens {
+    position: absolute; 
+    border: 1px solid black;
+    display: none; 
+    background: grey; 
+}
+
+.menu:hover .clubvantagens {
+    display: block; 
+}
+
+.clubvantagens a {
+    display: block; 
+    color: black; 
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    nav ul {
+        flex-direction: column; 
+        align-items: flex-start;
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    nav ul {
+        flex-direction: row; 
+        justify-content: center; 
+    }
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    nav ul {
+        flex-direction: row;
+        justify-content: left;
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    nav ul {
+        justify-content: left; 
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .club-cerva {
+        font-size: 1em; 
+        width: 90%; 
+        margin: 10px auto; 
+        text-align: left; 
+    }
+}
+
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .club-cerva {
+        font-size: 1.1em;
+        width: 80%;
+        margin: 15px auto;
+        text-align: left;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .club-cerva {
+        font-size: 1.15em;
+        width: 60%;
+        margin: 20px auto;
+        text-align: center; 
+    }
+}
+
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .club-cerva {
+        font-size: 1.2em;
+        width: 50%;
+        text-align: left; 
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .club-cerva {
+        font-size: 1.3em; 
+        width: 40%;
+    }
+}
+/* Estilo para os produtos */
+.produto {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+}
+
+.produto img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.produto button {
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.produto button:hover {
+    background-color: darkgoldenrod;
+    transform: scale(1.1);
+}
+
+/* Carrinho */
+#carrinho {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    color: black;
+}
+
+/* Busca de CEP */
+.buscar-cep {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+}
+
+.buscar-cep input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.buscar-cep button {
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.buscar-cep button:hover {
+    background-color: darkgoldenrod;
+    transform: scale(1.1);
+}
