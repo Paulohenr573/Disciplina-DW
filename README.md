@@ -11,10 +11,10 @@ Projetos Incluídos
 - Status: Em andamento.
 
  2. Projeto do Semestre Anterior (Introdução ao Desenvolvimento Web)
-- Título:*Club Cerva.
+- Título: Club Cerva.
 - Descrição: Projeto desenvolvido na disciplina *Introdução ao Desenvolvimento Web, refletindo meu aprendizado inicial e explorando conceitos de HTML, CSS e JavaScript.
 - Tecnologias Utilizadas: HTML, CSS, JavaScript.
-- Principais Funcionalidades:** 
+- Principais Funcionalidades:
   - Site interativo com:
     - Responsividade para diferentes tamanhos de tela.
     - Formulário de preenchimento com validações.
@@ -32,3 +32,5 @@ Motivação
 Apesar de não atuar como desenvolvedor profissional, vejo nesta disciplina uma oportunidade de expandir minhas habilidades e meu conhecimento na área. O projeto adicional busca demonstrar meu progresso e dedicação ao longo do tempo.
 
 
+Disciplina-DW
+Repositório para atividades desenvolvidas em aula e trabalho de Desenvolvimento Web
