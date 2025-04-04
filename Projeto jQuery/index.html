@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplos com jQuery</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Menu Dropdown -->
+  <section>
+    <h2>🔽 Menu de Navegação Dropdown</h2>
+    <div class="dropdown">
+      <button id="dropdownBtn">Menu</button>
+      <div class="dropdown-content" id="dropdownMenu">
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lista de Tarefas -->
+  <section>
+    <h2>📝 Lista de Tarefas</h2>
+    <input type="text" id="taskInput" placeholder="Digite uma tarefa...">
+    <button id="addTask">Adicionar</button>
+    <button id="clearTasks">Limpar Tudo</button>
+    <ul id="taskList"></ul>
+  </section>
+
+  <!-- Validação de Formulário -->
+  <section>
+    <h2>📋 Formulário com Validação</h2>
+    <form id="form">
+      <input type="text" id="nome" placeholder="Seu nome"><br>
+      <input type="email" id="email" placeholder="Seu e-mail"><br>
+      <input type="text" id="telefone" placeholder="Seu telefone (99) 99999-9999"><br>
+      <button type="submit">Enviar</button>
+      <div id="formMsg"></div>
+    </form>
+  </section>
+
+  <!-- Carrossel de Imagens -->
+  <section>
+    <h2>🖼️ Carrossel de Imagens</h2>
+    <div class="carousel-container">
+      <div class="carousel-slide" id="carousel">
+        <img src="carrossel.jpg" alt="1">
+        <img src="casa.jpg" alt="2">
+        <img src="gato.jpg" alt="3">
+        <img src="entrevista.jpg" alt="4">
+      </div>
+    </div>
+    <button id="prev">⏪</button>
+    <button id="next">⏩</button>
+  </section>
+
+  <!-- Galeria de Imagens -->
+  <section>
+    <h2>🖼️ Galeria com Miniaturas</h2>
+    <img id="mainImage" src="https://via.placeholder.com/300x200/ff7f7f/333" alt="Principal">
+    <div class="gallery">
+      <img class="thumb active" src="https://via.placeholder.com/300x200/ff7f7f/333" alt="1">
+      <img class="thumb" src="casa.jpg" alt="2">
+      <img class="thumb" src="carrossel.jpg" alt="3">
+      <img class="thumb" src="entrevista.jpg" alt="4">
+      <img class="thumb" src="gato.jpg" alt="5">
+    </div>
+  </section>
+
+</body>
+</html>
