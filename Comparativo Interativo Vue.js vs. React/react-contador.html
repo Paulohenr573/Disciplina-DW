@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interativo com React</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .positivo { color: green; }
+    .negativo { color: red; }
+    button { margin: 5px; padding: 5px 10px; }
+    input { padding: 5px; margin-bottom: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    function App() {
+      const [titulo, setTitulo] = useState("Contador Interativo - React");
+      const [contador, setContador] = useState(0);
+      const [novaNota, setNovaNota] = useState('');
+      const [notas, setNotas] = useState([]);
+
+      useEffect(() => {
+        const intervalo = setInterval(() => {
+          setContador(prev => prev + 1);
+        }, 1000);
+        return () => clearInterval(intervalo);
+      }, []);
+
+      const corTexto = contador > 0 ? 'positivo' :
+                       contador < 0 ? 'negativo' : '';
+
+      const dobro = contador * 2;
+
+      const adicionarNota = () => {
+        if (novaNota.trim()) {
+          setNotas([...notas, novaNota.trim()]);
+          setNovaNota('');
+        }
+      };
+
+      const removerNota = (index) => {
+        const novaLista = [...notas];
+        novaLista.splice(index, 1);
+        setNotas(novaLista);
+      };
+
+      return (
+        <div>
+          <h1>{titulo}</h1>
+          <input value={titulo} onChange={e => setTitulo(e.target.value)} placeholder="Mude o título" />
+
+          <p className={corTexto}>Contador: {contador}</p>
+          <p>Dobro: {dobro}</p>
+          <button onClick={() => setContador(contador + 1)}>+</button>
+          <button onClick={() => setContador(contador - 1)}>-</button>
+          <button onClick={() => setContador(0)}>Zerar</button>
+
+          <h2>Notas</h2>
+          <input value={novaNota} onChange={e => setNovaNota(e.target.value)} placeholder="Nova nota" />
+          <button onClick={adicionarNota}>Adicionar</button>
+          <ul>
+            {notas.map((nota, index) => (
+              <li key={index}>
+                {nota} <button onClick={() => removerNota(index)}>Remover</button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

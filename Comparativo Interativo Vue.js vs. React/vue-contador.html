@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interativo com Vue</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    .positivo { color: green; }
+    .negativo { color: red; }
+    button { margin: 5px; padding: 5px 10px; }
+    input { padding: 5px; margin-bottom: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ titulo }}</h1>
+    <input v-model="titulo" placeholder="Mude o título" />
+
+    <p :class="corTexto">Contador: {{ contador }}</p>
+    <p>Dobro: {{ dobro }}</p>
+    <button @click="incrementar">+</button>
+    <button @click="decrementar">-</button>
+    <button @click="zerar">Zerar</button>
+
+    <h2>Notas</h2>
+    <input v-model="novaNota" placeholder="Nova nota" />
+    <button @click="adicionarNota">Adicionar</button>
+    <ul>
+      <li v-for="(nota, index) in notas" :key="index">
+        {{ nota }}
+        <button @click="removerNota(index)">Remover</button>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          titulo: 'Contador Interativo - Vue.js',
+          contador: 0,
+          novaNota: '',
+          notas: []
+        }
+      },
+      computed: {
+        corTexto() {
+          return this.contador > 0 ? 'positivo' :
+                 this.contador < 0 ? 'negativo' : '';
+        },
+        dobro() {
+          return this.contador * 2;
+        }
+      },
+      methods: {
+        incrementar() {
+          this.contador++;
+        },
+        decrementar() {
+          this.contador--;
+        },
+        zerar() {
+          this.contador = 0;
+        },
+        adicionarNota() {
+          if (this.novaNota.trim()) {
+            this.notas.push(this.novaNota.trim());
+            this.novaNota = '';
+          }
+        },
+        removerNota(index) {
+          this.notas.splice(index, 1);
+        }
+      },
+      mounted() {
+        setInterval(() => {
+          this.contador++;
+        }, 1000);
+      }
+    }).mount('#app');
+  </script>
+</body>
+</html>
