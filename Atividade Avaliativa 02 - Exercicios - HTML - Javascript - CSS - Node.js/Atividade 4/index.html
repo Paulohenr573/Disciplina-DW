@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Inteligente</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 350px;
+        }
+        .digital-clock {
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            margin: 20px 0;
+        }
+        .date {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        .analog-clock {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+            border: 8px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.1),
+                        inset 0 0 0 3px #EFEFEF,
+                        inset 0 0 10px black,
+                        0 0 10px rgba(0,0,0,0.2);
+        }
+        .clock-hand {
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform-origin: 50% 100%;
+            background: white;
+            border-radius: 5px;
+        }
+        .hour-hand {
+            width: 6px;
+            height: 50px;
+            margin-left: -3px;
+        }
+        .minute-hand {
+            width: 4px;
+            height: 70px;
+            margin-left: -2px;
+        }
+        .second-hand {
+            width: 2px;
+            height: 90px;
+            margin-left: -1px;
+            background: #ff5e5e;
+        }
+        .center-point {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            margin: -6px 0 0 -6px;
+            background: white;
+            border-radius: 50%;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="date" id="dateDisplay"></div>
+        <div class="digital-clock" id="digitalClock"></div>
+        
+        <div class="analog-clock">
+            <div class="clock-hand hour-hand" id="hourHand"></div>
+            <div class="clock-hand minute-hand" id="minuteHand"></div>
+            <div class="clock-hand second-hand" id="secondHand"></div>
+            <div class="center-point"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            fetch('/datetime')
+                .then(response => response.json())
+                .then(data => {
+                    // Atualização digital
+                    document.getElementById('digitalClock').textContent = data.time;
+                    document.getElementById('dateDisplay').textContent = data.date;
+                    
+                    // Atualização analógica
+                    const now = new Date();
+                    const seconds = now.getSeconds();
+                    const minutes = now.getMinutes();
+                    const hours = now.getHours() % 12;
+                    
+                    document.getElementById('secondHand').style.transform = `rotate(${seconds * 6}deg)`;
+                    document.getElementById('minuteHand').style.transform = `rotate(${minutes * 6}deg)`;
+                    document.getElementById('hourHand').style.transform = `rotate(${(hours * 30) + (minutes * 0.5)}deg)`;
+                });
+        }
+
+        // Atualiza a cada segundo
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
