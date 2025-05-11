@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora da Lei de Ohm</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora da Lei de Ohm</h1>
+        <form action="/calcular" method="POST">
+            <div class="input-group">
+                <label for="tensao">Tensão (Volts):</label>
+                <input type="number" step="0.01" id="tensao" name="tensao" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="corrente">Corrente (Ampères):</label>
+                <input type="number" step="0.01" id="corrente" name="corrente" required>
+            </div>
+            
+            <button type="submit" class="btn">Calcular Resistência</button>
+        </form>
+    </div>
+</body>
+</html>
